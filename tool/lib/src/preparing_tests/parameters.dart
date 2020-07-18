@@ -5,7 +5,6 @@ import 'package:fast_flutter_driver_tool/src/preparing_tests/devices.dart'
 import 'package:fast_flutter_driver_tool/src/running_tests/parameters.dart';
 import 'package:fast_flutter_driver_tool/src/utils/colorizing.dart';
 import 'package:fast_flutter_driver_tool/src/utils/enum.dart';
-import 'package:meta/meta.dart';
 
 const languageArg = 'language';
 const screenshotsArg = 'screenshots';
@@ -74,7 +73,7 @@ Supports the use of product flavors in Android Gradle scripts, and the use of cu
     negatable: false,
   );
 
-void printErrorHelp(String command, {@required Logger logger}) {
+void printErrorHelp(String command, {required Logger logger}) {
   logger.stdout(
     '''
 ${red('Failed')} to run command '${yellow(command)}'

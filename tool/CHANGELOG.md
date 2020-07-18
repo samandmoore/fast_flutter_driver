@@ -1,3 +1,14 @@
+## 1.4.0-nnbd
+
+Pre-release for the null safety migration of this package.
+
+Note that `1.3.0` may not be the final stable null safety release version,
+we reserve the right to release it as a `2.0.0` breaking change.
+
+This release will be pinned to only allow pre-release sdk versions starting
+from `2.9.0-dev.18.0`, which is the first version where this package will
+appear in the null safety allow list.
+
 ## 1.3.3
 - Tests in `generic_test.dart::main` are sorted by name in case users want to run the tests in a specific order
 

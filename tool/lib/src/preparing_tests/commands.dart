@@ -10,7 +10,7 @@ class FlutterCommand {
   String run(
     String target,
     String device, {
-    @required String flavor,
+    @required String? flavor,
   }) {
     // ignore: missing_whitespace_between_adjacent_strings
     return 'flutter run -d $device --target=$target'
@@ -20,7 +20,7 @@ class FlutterCommand {
   String attach(String debugUri, String device) =>
       'flutter attach -d $device --debug-uri $debugUri';
 
-  String dart(String file, [Map<String, String> arguments]) {
+  String dart(String file, [Map<String, String>? arguments]) {
     final args = arguments?.entries
         ?.map((entry) =>
             '${entry.key}${entry.value.isNotEmpty ? ' ${entry.value}' : ''}')

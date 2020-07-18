@@ -15,7 +15,7 @@ import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
 void main() {
-  Logger logger;
+  late Logger logger;
   setUp(() {
     logger = _MockLogger();
   });
@@ -91,9 +91,9 @@ void main() {
         inputFactory: streams.input,
         run: (
           String command, {
-          streams.OutputCommandLineStream stdout,
-          streams.InputCommandLineStream stdin,
-          streams.OutputCommandLineStream stderr,
+          streams.OutputCommandLineStream? stdout,
+          streams.InputCommandLineStream? stdin,
+          streams.OutputCommandLineStream? stderr,
         }) async {
           commands.add(command);
         },
@@ -131,9 +131,9 @@ void main() {
         inputFactory: streams.input,
         run: (
           String command, {
-          streams.OutputCommandLineStream stdout,
-          streams.InputCommandLineStream stdin,
-          streams.OutputCommandLineStream stderr,
+          required streams.OutputCommandLineStream stdout,
+          streams.InputCommandLineStream? stdin,
+          streams.OutputCommandLineStream? stderr,
         }) async {
           commands.add(command);
         },
@@ -165,9 +165,9 @@ void main() {
         inputFactory: () => _MockInputCommandLineStream(),
         run: (
           String command, {
-          streams.OutputCommandLineStream stdout,
-          streams.InputCommandLineStream stdin,
-          streams.OutputCommandLineStream stderr,
+          required streams.OutputCommandLineStream stdout,
+          streams.InputCommandLineStream? stdin,
+          streams.OutputCommandLineStream? stderr,
         }) async {
           commands.add(command);
           if (command ==
