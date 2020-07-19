@@ -111,7 +111,7 @@ class TestExecutor {
   ) {
     final completer = Completer<String>();
     final buildProgress = logger.progress('Building application for $device');
-    late Progress syncingProgress;
+    Progress? syncingProgress;
 
     final output = outputFactory((String line) async {
       if (line.contains('Syncing files to')) {
@@ -120,7 +120,7 @@ class TestExecutor {
       }
       final match = RegExp('is available at: (http://.*/)').firstMatch(line);
       if (match != null) {
-        syncingProgress.finish(showTiming: true);
+        syncingProgress?.finish(showTiming: true);
         final url = match.group(1);
         logger.trace('Observatory url: $url');
         completer.complete(url);
