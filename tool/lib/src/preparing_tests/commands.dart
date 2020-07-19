@@ -21,10 +21,11 @@ class FlutterCommand {
       'flutter attach -d $device --debug-uri $debugUri';
 
   String dart(String file, [Map<String, String>? arguments]) {
-    final args = arguments?.entries
-        ?.map((entry) =>
+    final args = (arguments ?? <String, String>{})
+        .entries
+        .map((entry) =>
             '${entry.key}${entry.value.isNotEmpty ? ' ${entry.value}' : ''}')
-        ?.join(' ');
-    return 'dart $file ${args ?? ''}';
+        .join(' ');
+    return 'dart $file $args';
   }
 }
